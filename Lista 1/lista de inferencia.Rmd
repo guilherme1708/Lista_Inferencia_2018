@@ -1,0 +1,111 @@
+---
+title: "Lista de Inferência - MAE0311 (Anexos)"
+author: 'Guilherme NUSP: 8943160 e Leonardo NUSP: 9793436'
+output:
+  pdf_document: default
+---
+
+## Questão 5
+
+b) Para a função de verossimilhança de $X \sim Beta(1,\theta)$
+
+```{r echo = FALSE, out.width = '70%', warning=FALSE}
+x <- c(0.61,0.73,0.9,0.11,0.06,0.03,0.6,0.38,0.13,0.1)
+
+theta <- seq(0, 1, length = 100)
+
+n <- length(x)
+
+vero1 <- function(theta) {
+  (theta^n * prod(1-x)^(theta-1))
+}
+
+plot(vero1, from = 0, to = 5, xlab = expression(theta), ylab = expression(L(theta,x)), main = expression("Função de Verossimilhança"), lwd=2)
+points(1.56, vero1(1.56), pch = 19, cex = 1.5)
+```
+
+Como podemos observar o máximo ocorre com $\theta \approx 1.56$
+
+Para a função de verossimilhança de $Y \sim Beta (\theta,1)$
+
+```{r echo = FALSE, out.width = '70%', warning=FALSE}
+
+y <- c(0.85,0.97,0.41,0.92,0.73,0.66,0.5,0.39,0.5,0.63)
+
+n <- length(y)
+
+theta <- seq(0, 1, length = 100)
+
+vero2 <- function(theta) {
+  (theta^n * prod(y)^(theta-1))
+}
+
+plot(vero2, from = 0, to = 6, xlab = expression(theta), ylab = expression(L(theta,x)), main = expression("Função de Verossimilhança"), lwd=2)
+points(2.13, vero2(2.13), pch = 19, cex = 1.5)
+
+```
+
+Como podemos observar o máximo ocorre com $\theta \approx 2.13$
+
+# Questão 6
+
+Seja x = (0.24, 0.34, 0.23, 0.17, 0.18, 0.14, 0.27, 0.08, 0.20, 0.10, 0.02, 0.22, 0.04, 0.02, 0.03, 0.17, 0.17, 0.08, 0.18, 0.01), Uma Amostra observada.
+
+```{r echo = FALSE, warning=FALSE}
+
+x <- c(0.24,0.34,0.23,0.17,0.18,0.14,0.27,0.08,0.20,0.10,0.02,0.22,0.04,0.02,0.03,0.17,0.17,0.08,0.18,0.01)
+
+x_bar <- mean(x)
+
+theta2 <- (1/x_bar)
+
+```
+
+$\bar{X} = \frac{1}{20} \sum_{i=1}^{20} x_{i} =$ `r x_bar`, assim $\theta_{2} = \frac{1}{\bar{x}} = \frac{1}{0.1445}$ = `r theta2`
+
+
+a) Histograma com os dados da amostra observada:
+
+```{r echo = FALSE, out.width = '70%', warning=FALSE}
+x <- c(0.24,0.34,0.23,0.17,0.18,0.14,0.27,0.08,0.20,0.10,0.02,0.22,0.04,0.02,0.03,0.17,0.17,0.08,0.18,0.01)
+
+x_bar <- mean(x)
+
+theta1 <- 1
+
+theta2 <- (1/x_bar)
+
+theta3 <- 10
+
+n <- length(x)
+
+hist(x, main = "Histograma", xlab = "Dados", ylab = "Densidade", col = "lightgray", breaks = 4)
+curve(dexp(x,theta1), add = T, lty = 5)
+curve(dexp(x,theta2), add = T, lty = 1)
+curve(dexp(x,theta3), add = T, lty = 4)
+legend("topright", c(expression(theta[1]==1),expression(theta[2]==6.92),expression(theta[3]==10)), lty = c(5,1,4))
+
+```
+
+b) Gráfico função de Verossimilhança
+
+```{r echo = FALSE, out.width = '70%', warning=FALSE}
+x <- c(0.24, 0.34, 0.23, 0.17, 0.18, 0.14, 0.27, 0.08, 0.20, 0.10, 0.02, 0.22, 0.04, 0.02, 0.03, 0.17, 0.17, 0.08, 0.18, 0.01)
+
+theta <- seq(0,14, length=2000)
+
+med <- mean(x)
+
+emv_exp <- 1/med
+
+n <- length(x)
+
+lik <- function(theta) {
+  theta^n * exp(-theta*sum(x))
+}
+
+plot(lik, from = 1, to = 13, xlab = expression(theta), ylab = expression(L(theta,x)), main = expression("Função de Verossimilhança"), lwd=2)
+points(emv_exp, lik(emv_exp), pch = 19, cex = 1.5)
+points(1, lik(1), pch = 19, cex = 1.5)
+points(10, lik(10), pch = 19, cex = 1.5)
+```
