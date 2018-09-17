@@ -1,0 +1,74 @@
+---
+title: "Lista II de Inferência - MAE0311 (Anexos)"
+author: 'Guilherme NUSP: 8943160 e Leonardo NUSP: 9793436'
+output:
+  pdf_document: default
+---
+
+## Questão 1
+
+c) Os EQM's de  $T_{1}=\bar{X}$ e $T_{2}=X_{(n)}$ são respectivamente: $$EQM(T_{1})= \frac{\theta^2 (2n+1)}{18n} $$ $$EQM(T_{2})= \frac{\theta^2}{(2n+1)(n+1)}$$ Fixando o tamanho da amostra em $n=10$ Seus gráficos em função de $\theta$ são:
+
+```{r echo = FALSE, out.width = '50%', warning=FALSE}
+
+n <- 10
+theta <- seq(1,10)
+
+EQM <- function(theta) {
+  (theta**2 * (2*n+1)/18*n)
+}
+
+EQM2 <- function(theta) {
+  (theta**2/((2*n+1)*(n+1)))
+}
+
+plot(EQM, from = 0, to = 10, main = expression(EQM(T[1])), lwd=2, xlab = expression(theta), ylab = "EQM", ylim = c(0,5))
+plot(EQM2, from = 0, to = 10, main = expression(EQM(T[2])), lwd=2,  xlab = expression(theta), ylab = "EQM", ylim = c(0,5))
+
+```
+
+Fixando o valor de $\theta=1$ e fazendo os gráficos em função do tamanho da amostra(n), temos:
+
+```{r echo = FALSE, out.width = '50%', warning=FALSE}
+
+n <- seq(1,15)
+theta <- 1
+
+EQM <- function(n) {
+  (theta**2 * (2*n+1)/18*n)
+}
+
+EQM2 <- function(n) {
+  (theta**2/((2*n+1)*(n+1)))
+}
+
+plot(EQM, from = 0, to = 10, main = expression(EQM(T[1])), lwd=2, xlab = expression(n), ylab = "EQM", ylim = c(0,1))
+plot(EQM2, from = 0, to = 10, main = expression(EQM(T[2])), lwd=2,  xlab = expression(n), ylab = "EQM", ylim = c(0,1))
+```
+
+O exercício pedia apenas para fazer os gráficos dos EQM's em função de $\theta$, porém quando fizemos os gráficos dos dois estimadores notamos uma diferença significativa,então decidimos construir os gráficos dos EQM's fixando um valor de $\theta$ e variando o tamanho da amostra, assim com esse conjunto de gráficos podemos concluir que o estimador $T_2 = X_{(n)}$ é melhor, pois conforme $\theta$ cresce o EQM cresce mais "devagar" e também inclusive quando $n \rightarrow \infty$ EQM converge para 0.
+
+
+## Questão 2
+
+c) Supondo Que $T_{1} = 2\bar{X}$ e $T_{2} = \frac{n+1}{n}X_{(n)}$ sejam não-viciados são respectivamente: $$EQM(T_{1})= \frac{\theta^2}{3n} $$ $$EQM(T_{2})= \frac{\theta^2}{n(n+2)}$$ Fixando o tamanho da amostra em $n=100$ Seus gráficos em função de $\theta$ são:
+```{r echo = FALSE, out.width = '50%', warning=FALSE}
+
+n <- 100
+theta <- seq(1,10)
+
+EQM <- function(theta) {
+  (theta**2/(3*n))
+}
+
+EQM2 <- function(theta) {
+  (theta**2/(n*(n+2)))
+}
+
+plot(EQM, from = 0, to = 5, main = expression(EQM(T[1])), lwd=2, xlab = expression(theta), ylab = "EQM", ylim = c(0,0.01))
+plot(EQM2, from = 0, to = 5, main = expression(EQM(T[2])), lwd=2,  xlab = expression(theta), ylab = "EQM", ylim = c(0,0.01))
+```
+
+
+Como podemos observar, da mesma forma que ocorre com o exercício acima, o estimador $T_2$ é melhor, pois conforme $\theta$ cresce o EQM cresce mais "devagar", e também como o EQM dos dois estimadores quando $n \rightarrow \infty$, precebemos que o estimador $T_2$ faz o EQM convergir mais rápido para 0.
+
