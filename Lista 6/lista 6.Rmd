@@ -1,0 +1,180 @@
+---
+title: "Lista VI"
+author: 'Guilherme NUSP: 8943160 e Leonardo NUSP: 9793436'
+output: pdf_document
+---
+
+# Exercício 1
+
+Seja $(X_{1}, . . . , X_{n})$ uma amostra aleatória de $X \sim Pois(\theta)$, em que o parâmetro $\theta \in \Theta = \{ 1, 2, 3\}$.
+
+a) $H_{0} : \theta = 1$ versus $H_{1} : \theta = 3$. Considere as seguintes duas funções testes:
+
+\ $$\delta_{aj}(X_{1}, . . . , X_{n}) = \left\{ \begin{array}{ll}
+1, & \mbox{ se } \bar{X_{n}} \ge k_{j}, \mbox{  } j \in \{ 1,2 \} \ \ 
+\\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+Em que $\bar{X_{n}}$ é a média amostral e $k_{1}=2.5$ e $k_{2}=3$.
+
+(i) Calcule o tamanho do teste para cada função teste $\delta{a_1}$ e $\delta{a_2}$  Faça um gráfico para cada tamanho do teste (para cada função teste) em relação ao tamanho amostral $n \in [1, 100]$.
+
+### Resolução
+
+Para $k_{1}=2.5$
+\ $$\delta_{a_1}(X_{1}, . . . , X_{n}) = \left\{ \begin{array}{ll}
+1, & \mbox{ se } \bar{X_{n}} \ge 2.5, \mbox{  } \ 
+\\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+
+
+(ii) Verifique qual é o teste mais poderoso $\delta{a_1}$ ou $\delta{a_2}$, deixe sua resposta em função de $n$. Faça o gráfico do poder do teste em função $n$.
+
+### Resolução
+
+b) $H_{0} : \theta = 2$ versus $H_{1} : \theta \in \{1,3\}$. Considere a seguinte função teste:
+
+\ $$\delta_{b}(X_{1}, . . . , X_{n}) = \left\{ \begin{array}{ll}
+1, & \mbox{ se } \bar{X_{n}} \le 1.5 \mbox{ ou } \bar{X_{n}} \ge 2.5,  \ \ 
+\\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+(i) Calcule o tamanho do teste $\delta_{b}$ e discuta as diferenças entre o tamanho do teste e o nível de significância para este caso.
+
+### Resolução
+
+(ii) Para $n = 2$, calcule a função poder e mostre o gráfico em função de $\theta \in \{1, 2, 3\}$.
+
+### Resolução
+
+c) $H_{0} : \theta \in \{1,2\}$ versus $H_{1} : \theta = 3$.Considere a seguinte função teste:
+
+\ $$\delta_{c}(X_{1}, . . . , X_{n}) = \left\{ \begin{array}{ll}
+1, & \mbox{ se } \bar{X_{n}} \ge k,  \ \ 
+\\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+(i) Apresente a fórmula do tamanho do teste em termos de $k$.
+
+### Resolução
+
+(ii) Faça um gráfico do poder do teste contra a alternativa $\theta_{A} = 3$ em função do tamanho amostral $n \in[1, 100].$
+
+### Resolução
+
+# Exercício 2
+
+Seja $X_{1}$ uma amostra aleatória de $X \sim Pois(\theta)$, em que o parâmetro $\theta \in \{\theta_{0}, \theta_{1} \}$, $\theta_{0} \neq \theta_{1}$ e
+
+\centering
+\begin{tabular}{l|c|c|c|c|c}
+$X$ & 0    & 1    & 2    & 3    & 4    \\ \hline
+$P_{\theta_{0}}$ & 0.02 & 0.03 & 0.05 & 0.85 & 0.05 \\ 
+$P_{\theta_{1}}$ & 0.04 & 0.05 & 0.08 & 0.53 & 0.30
+\end{tabular}
+\flushleft
+
+Seja a hipótese nula $H_{0} : \theta = \theta_{0}$ e a alternativa $H_{1} : \theta = \theta_{1}$. Considere a função teste na forma
+
+\ $$\delta(X_{1}) = \left\{ \begin{array}{ll}
+1, & \mbox{ se } X_{1} \neq k,  \ \ 
+\\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+a) Faça o gráfico do tamanho do teste para $k = \{0,1,2,3,4 \}$.
+
+### Resolução
+
+b) Calcule o poder do teste para $k = \{0,1,2,3,4 \}$ e faça o gráfico.
+
+### Resolução
+
+c) Para qual $k$ o teste tem nível de significância $\alpha = 0.2$.
+
+### Resolução
+
+# Exercício 3
+
+Seja $(X_{1}, . . . , X_{n})$ uma amostra aleatória de $X \sim N(\mu,\sigma^2)$, com $(\mu,\sigma^2) \in \Theta \subseteq \mathbb{R} \times \mathbb{R}_{+}$,
+
+a) Seja a hipótese nula $H_{0} : \mu \le 0$ e a alternativa $H_{1} : \mu > 0$, (suponha $\sigma^2$ conhecido).
+
+(i) Construa o teste uniformemente mais poderoso.
+  
+### Resolução
+
+(ii) Suponha agora que a hipótese nula seja $H_{0} : \mu = 0$ e a alternativa $H_{1} : \mu \neq 0$. Construa o teste de razão dde verossimilhanças generalizado e calcule o valor-$p$ (nível descritivo) associado.
+
+### Resolução
+
+b) Seja a hipótese nula $H_{0} : \sigma^2 \ge 2$ e alternativa $H_{1} : \sigma^2 < 2$, (suponha $\mu$ conhecido).
+
+(i) Construa o teste uniformemente mais poderoso.
+
+### Resolução
+
+(ii) Suponha agora que a hipótese nula seja $H_{0} : \sigma^2 = 2$ e alternativa $H_{1} : \sigma^2 \neq 2$. Construa o teste de razão de verossimilhanças generalizado e calculo o valor-$p$ associado.
+
+### Resolução
+
+# Exercício 4
+
+Seja $(X_{1}, . . . , X_{n})$ uma amostra aleatória de $X \sim Pois(\theta)$, em que o parâmetro $\theta \in \Theta \subseteq \mathbb{R}_{+}$
+
+a) Seja a hipótese nula $H_{0} : \theta \le 1$ e alternativa $H_{1} : \theta \ge 1$. Encontre o teste uniformemente mais poderoso, para uma amostra $n=40$ e um entre $(0.05, 0.06)$
+
+### Resolução
+
+b) Mostre que não existe um teste uniformemente mais poderoso de tamanho $0.05$.
+
+### Resolução
+
+c) Utilizando a amostra abaixo, verifique que se a $H_{0}$ e rejeitada ao nível de significância $\alpha = 0.06$, justifique.
+
+\centering
+0, 2, 2, 4, 1, 1, 0, 2, 0, 1  
+
+3, 0, 5, 1, 1, 0, 0, 2, 2, 0 
+
+1, 2, 1, 0, 0, 2, 0, 3, 0, 3 
+
+1, 2, 2, 1, 2, 0, 3, 1, 1, 1
+\flushleft
+
+*Dica: Utilize o fato para* $n=40$, *o quantil* $0.95$ *da distribuição Poisson com parâmetro* $\theta = n$ *é* $q_{0.95}=51$.
+
+### Resolução
+
+# Exercício 5
+
+Seja $(X_{1}, . . . , X_{n})$ uma amostra aleatória de $X \sim f_{\theta}$, tal que
+
+\ $$f_{\theta}(x) = \left\{ \begin{array}{ll}
+\theta^2xe^{-\theta x}, & \mbox{ se } x>0, \mbox{ } \theta >0, \ \ 
+\\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+a) Seja a hipótese nula $H_{0} : \theta = 1$ e alternativa $H_{1} : \theta < 1$,
+
+(i) Encontre o teste mais poderoso de tamanho $\alpha$ a utilizando o lema de Neyman-Pearson.
+
+### Resolução
+
+(ii) Calcule a região crítica para $n=10$ e tamanho do teste $\alpha = 0.05$.
+
+### Resolução
+
+(iii) Para a amostra abaixo, verefique se a $H_{0}$ é rejeitada para um nível de significância $\alpha = 0.05$.
+
+\centering
+2.59, 0.48, 2.72, 0.93, 5.68, 2.28, 3.92, 4.08, 0.61, 2.59.
+\flushleft
+
+### Resolução
+
+b) Seja a hipótese nula $H_{0} : \theta = 1$ e alternativa $H_{1} : \theta \neq 1$. Construa o teste de razão de verossimilhanças generalizado e calule valor-$p$ (nível descritivo) associado.
+
+*Dica: Utilize o fato* $2 \theta \sum^n_{i=1} X_{i} \sim \chi^2_{2n}$, *e use a tabela referente a distribuição para* $\alpha = 0.05$.
+
+### Resolução
