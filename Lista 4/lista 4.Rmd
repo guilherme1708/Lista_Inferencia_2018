@@ -1,0 +1,128 @@
+---
+title: "Lista IV"
+author: 'Guilherme NUSP: 8943160 e Leonardo NUSP: 9793436'
+output: pdf_document
+---
+
+# Exercício 6
+
+Seja $(X_{1},...,X_{n})$ uma a.a. de $X \sim f_{\theta}$ em que: 
+\ $$f_{\theta}(x) = \left\{ \begin{array}{ll}
+\theta_{1}\theta_{2}x^{\theta_{2}-1} e^{-\theta_{1}x^{\theta_{2}}}, & \mbox{ se } x>0, \ \ \theta_{1}>0, \ \ \theta_{1}>0 \\
+0, & \mbox{} c.c. \end{array} \right.\ $$
+
+Temos uma amostra de tamanho $n=100$ de $X \sim f_{\theta}$
+\newline
+
+\center
+\begin{tabular}{cccccccccc}
+1.19, & 1.33, & 1.29, & 0.97, & 0.57, & 0.26, & 1.46, & 0.73, & 0.45, & 0.85, \\
+1.67, & 0.56, & 0.45, & 0.35, & 0.52, & 1.32, & 1.22, & 1.09, & 0.27, & 0.34, \\
+0.59, & 0.78, & 0.55, & 1.29, & 1.11, & 1.04, & 1.21, & 0.38, & 0.61, & 1.12, \\
+0.72, & 0.55, & 0.90, & 0.26, & 0.90, & 0.54, & 0.99, & 0.67, & 1.36, & 0.18, \\
+0.58, & 0.22, & 1.38, & 1.36, & 0.35, & 1.43, & 0.04, & 0.26, & 0.86, & 1.06, \\
+1.47, & 0.42, & 0.62, & 0.58, & 0.65, & 0.54, & 0.76, & 0.93, & 1.15, & 0.92, \\
+1.95, & 1.29, & 0.64, & 0.13, & 1.70, & 1.00, & 0.75, & 1.09, & 1.40, & 1.26, \\
+0.87, & 0.80, & 0.67, & 0.47, & 0.66, & 0.33, & 0.56, & 1.01, & 1.54, & 0.46, \\
+1.39, & 1.30, & 1.17, & 1.60, & 1.16, & 0.93, & 1.27, & 0.20, & 1.17, & 0.42, \\
+1.53, & 0.31, & 1.31, & 1.20, & 0.75, & 0.72, & 1.97, & 1.26, & 0.48, & 0.27.
+\end{tabular}
+\flushleft
+
+```{r, echo=F}
+x <- c(1.19, 1.33, 1.29, 0.97, 0.57, 0.26, 1.46, 0.73, 0.45, 0.85,
+1.67, 0.56, 0.45, 0.35, 0.52, 1.32, 1.22, 1.09, 0.27, 0.34,
+0.59, 0.78, 0.55, 1.29, 1.11, 1.04, 1.21, 0.38, 0.61, 1.12,
+0.72, 0.55, 0.90, 0.26, 0.90, 0.54, 0.99, 0.67, 1.36, 0.18,
+0.58, 0.22, 1.38, 1.36, 0.35, 1.43, 0.04, 0.26, 0.86, 1.06,
+1.47, 0.42, 0.62, 0.58, 0.65, 0.54, 0.76, 0.93, 1.15, 0.92,
+1.95, 1.29, 0.64, 0.13, 1.70, 1.00, 0.75, 1.09, 1.40, 1.26,
+0.87, 0.80, 0.67, 0.47, 0.66, 0.33, 0.56, 1.01, 1.54, 0.46,
+1.39, 1.30, 1.17, 1.60, 1.16, 0.93, 1.27, 0.20, 1.17, 0.42,
+1.53, 0.31, 1.31, 1.20, 0.75, 0.72, 1.97, 1.26, 0.48, 0.27)
+
+media <- mean(x)
+theta.hat <- 1/media
+```
+
+a) Suponha $\theta_{2} = 1$ conhecido. Apresente o estimador de MV para $\theta = \theta_{1}$  e sua estimativa. Insira a densidade $X \sim f_{\theta}$  estimada no histograma da amostra (utilize a densidade de frequencia e 10 classes com intervalos de classe iguais). Discuta os resultados.
+
+### Resolução
+
+Toamando $\theta_{2} = 1$ temos que $f_{\theta}(x)= \theta  e^{-\theta x}$ portanto: $X \sim exp(\theta)$
+
+Econtrar o EMV para $\theta$:
+
+Função de Verossimilhança: $L(\theta, x) = \prod_{i=1}^{n} [f_{\theta}(x)] = \prod_{i=1}^{n} \theta  e^{-\theta x_{i}} = \theta^n e^{-\theta \sum_{i=1}^{n} x_{i}}$
+
+Aplicando o Logaritmo na base $e$:
+
+$ln(L(\theta, x)) = ln(\theta^n e^{-\theta \sum_{i=1}^{n} x_{i}}) = nln(\theta)-\theta\sum_{i=1}^{n} x_{i}$
+
+Agora derivando e igualando a zero, temos:
+
+$\frac{d(ln(L(\theta, x)))}{d\theta} = \frac{n}{\theta}-\sum_{i=1}^{n} x_{i} = 0 \Rightarrow \hat{\theta}_{MV} = \frac{n}{\sum_{i=1}^{n} x_{i}} = \frac{1}{\bar{X}}$
+
+Verificando se é o ponto de máximo:
+
+$\frac{d^{2}(ln(L(\theta, x)))}{d\theta^{2}} = -\frac{n}{\theta^{2}} < 0 \ \forall \ \theta \in \Theta$ e $n >0$
+
+Assim, sua estimativa de acordo com a amostra observada é: $\widehat{\theta}_{MV}= \frac{1}{\bar{x}} = \frac{1}{`r media`}= `r theta.hat`$
+
+Plotando o histograma dos dados com a densidade $f_{\hat{\theta}}(x)$ estimada, temos:
+\center
+```{r echo=F, out.width = '65%'}
+f <- function (y) {
+  theta.hat*exp(-theta.hat*y)
+}
+
+hist(x, probability = T, breaks = 10, ylab = 'Densidade de Frequência', xlab = 'Dados observados', main = 'Histograma da amostra')
+curve(f, add = T)
+```
+\flushleft
+Analisando o gráfico gerado, podemos observar que para a curva cujos os parâmetros $\theta_{1}= `r theta.hat`$ e $\theta_{2}=1$ não se ajusta bem aos dados, com isso concluimos que $\theta_{1}$ e $\theta_{2}$ obtidos não são as melhores estimativas.
+\newline
+
+b) Suponha agora $\theta_{2}$ desconhecido e proponha um processo iterativo para encontrar os estimadores de máxima verossimilhança de $\theta = (\theta_{1},\theta_{2})$.
+
+### Resolução
+
+Um método iterativo é que proponho é o Newton-Raphson, que consiste em:
+$$\hat{\theta}^{(j+1)} = \hat{\theta}^{(j)} + H^{-1}(\hat{\theta}^{(j)})U_{n}(\hat{\theta}^{(j)}), \ \ \ \ \ \ \ \ \ j = 0,1,..$$
+Onde $U_{n}(\theta)$ é a função escore $U_{n}: \Theta \longrightarrow \mathbb{R}^{2}$ uma função vetorial diferenciavel em $\Theta$
+
+E $H^{-1}(\theta)$ e a matriz de derivadas parciais de segunda ordem negativas de $ln(L(\theta,x))$ (matriz Hessiana) 
+
+Os elementos $(i, j)$ são dados por: $$ H_{ij}(\theta)= - \frac{\partial^{2}}{\partial\theta_{i}\partial\theta_{j}} ln(L(\theta,x))$$
+
+Onde $\hat{\theta}^{(0)}$ é o valor inicial.
+
+c) Utilize o processo encontrado em (b) para calcular as estimativas de MV para $\theta = (\theta_{1},\theta_{2})$ considerando a amostra acima.
+
+### Resolução
+
+Utilizando o método iterativo do exercício anterior considerando a amostra dada chegamos em $\hat{\theta} = (1.03,2.08)$
+
+
+d) Insira a densidade $f_{\theta}$ com as estimativas encontradas em (c) e no mesmo histograma. Discutaos resultados.
+
+### Resolução
+
+\newpage
+\center
+
+```{r echo=F, out.width = '65%'}
+
+t1.hat <- 1.03
+t2.hat <- 2.08
+
+f <- function (y) {
+  t1.hat * t2.hat * y^(t2.hat-1) * exp(-t1.hat * y^(t2.hat))
+}
+
+hist(x, probability = T, breaks = 10, ylab = 'Densidade de Frequência', xlab = 'Dados observados', main = 'Histograma da amostra')
+curve(f, add = T)
+```
+\flushleft
+
+Podemos observar que depois do processo iterativo, encontramos os dois parâmetros que se adequaram melhor aos dados.
